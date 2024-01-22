@@ -7,6 +7,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { ReservationListComponent } from './components/reservation-list/reservation-list.component';
 import { LogInComponent } from './components/log-in/log-in.component';
+import { HomeComponent } from './components/home/home.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,10 @@ import { LogInComponent } from './components/log-in/log-in.component';
     HeaderComponent,
     ReservationComponent,
     ReservationListComponent,
-    LogInComponent
+    LogInComponent,
+    HomeComponent,
+    AboutUsComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
