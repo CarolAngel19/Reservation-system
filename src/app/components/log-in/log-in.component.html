@@ -1,1 +1,24 @@
-<p>log-in works!</p>
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <label>Nombre</label>
+    <input name="name" formControlName="name">
+    <div *ngIf="formGroup.get('name')?.hasError('required') && formGroup.get('name')?.touched">
+        El nombre es requerido
+    </div>
+
+    <label>Email</label>
+    <input name="email" formControlName="email">
+    <div *ngIf="formGroup.get('email')?.hasError('required') && formGroup.get('email')?.touched">
+        El Email es requerido.
+    </div> 
+    <div *ngIf="formGroup.get('email')?.hasError('email') && formGroup.get('email')?.touched">
+        El email debe ser un correo electrónico válido.
+    </div> <br>
+
+    <label>Contraseña</label>
+    <input name="contrasena" type="password" formControlName="contrasena">
+    <div *ngIf="formGroup.get('contrasena')?.hasError('required') && formGroup.get('contrasena')?.touched">
+        La contraseña es requerida.
+    </div> <br>
+
+    <input type="submit" value="Iniciar Sesión" [disabled]="!formGroup.valid">
+  </form>

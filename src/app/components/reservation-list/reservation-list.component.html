@@ -1,1 +1,58 @@
 <h1>Lista de Reservationes</h1>
+
+<form [formGroup]="reservationForm" (ngSubmit)="submitForm()">
+  <div>
+    <label for="id_user">ID Usuario:</label>
+    <input type="text" id="id_user" formControlName="id_user" />
+    <div *ngIf="reservationForm.get('id_user')?.invalid && reservationForm.get('id_user')?.touched">
+      ID Usuario es requerido.
+    </div>
+  </div>
+
+  <div>
+    <label for="id_Finca">ID Finca:</label>
+    <input type="text" id="id_Finca" formControlName="id_Finca" />
+    <div *ngIf="reservationForm.get('id_Finca')?.invalid && reservationForm.get('id_Finca')?.touched">
+      ID Finca es requerido.
+    </div>
+  </div>
+
+  <div>
+    <label for="numAdultos">Número de Adultos:</label>
+    <input type="number" id="numAdultos" formControlName="numAdultos" />
+    <div *ngIf="reservationForm.get('numAdultos')?.invalid && reservationForm.get('numAdultos')?.touched">
+      El número de adultos es requerido y debe ser al menos 1.
+    </div>
+  </div>
+
+  <div>
+    <label>Número de Niños:</label>
+    <input type="number"/>
+  </div>
+
+  <div>
+    <label for="FechaEntrada">Fecha de Entrada:</label>
+    <input type="date" id="FechaEntrada" formControlName="FechaEntrada" />
+    <div *ngIf="reservationForm.get('FechaEntrada')?.invalid && reservationForm.get('FechaEntrada')?.touched">
+      Fecha de Entrada es requerida.
+    </div>
+  </div>
+
+  <div>
+    <label for="FechaSalida">Fecha de Salida:</label>
+    <input type="date" id="FechaSalida" formControlName="FechaSalida" />
+    <div *ngIf="reservationForm.get('FechaSalida')?.invalid && reservationForm.get('FechaSalida')?.touched">
+      Fecha de Salida es requerida.
+    </div>
+  </div>
+
+  <div>
+    <label for="HoraLLegada">Hora de Llegada:</label>
+    <input type="time" id="HoraLLegada" formControlName="HoraLLegada" />
+    <div *ngIf="reservationForm.get('HoraLLegada')?.invalid && reservationForm.get('HoraLLegada')?.touched">
+      Hora de Llegada es requerida.
+    </div>
+  </div>
+
+  <button type="submit">Crear Reserva</button>
+</form>
