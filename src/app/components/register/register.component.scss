@@ -6,8 +6,9 @@
     display: flex;
     font-family: sans-serif;
     background: linear-gradient(#141e30, #243b55);
+    
 
-    .login-box {
+    .register-box{
         position: absolute;
         top: 50%;
         left: 50%;
@@ -25,7 +26,7 @@
             text-align: center;
         }
 
-        .user-box{
+        .form-box{
             input{
                 padding: 15px;
                 border: 1px solid #ccc;

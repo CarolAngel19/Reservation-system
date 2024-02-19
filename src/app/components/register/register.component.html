@@ -1,25 +1,29 @@
 <div class="container">
-    <div class="login-box">
-        <h2>Login</h2>
-        <div class="user-box">
+    <div class="register-box">
+        <h2>Register</h2>
+        <div class="form-box">
             <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+                <input name="name" formControlName="name" placeholder="Name">
+                <div *ngIf="formGroup.get('name')?.hasError('required') && formGroup.get('name')?.touched">
+                    El nombre es requerido
+                </div><br>
+            
                 <input name="email" formControlName="email" placeholder="Email">
                 <div *ngIf="formGroup.get('email')?.hasError('required') && formGroup.get('email')?.touched">
                     El Email es requerido.
                 </div> 
                 <div *ngIf="formGroup.get('email')?.hasError('email') && formGroup.get('email')?.touched">
                     El email debe ser un correo electrónico válido.
-                </div> <br>
-                
+                </div><br>
+            
                 <input name="password" type="password" formControlName="password" placeholder="Password">
                 <div *ngIf="formGroup.get('password')?.hasError('required') && formGroup.get('password')?.touched">
                     La contraseña es requerida.
                 </div> <br>
-               
-                <button type="submit" value="Iniciar Sesión" [disabled]="!formGroup.valid">Iniciar Sesión</button>
-                <button type="submit" routerLink="/register"  value="Registrarse">Registrarse</button>
-                <!--<button id="botonAtras" routerLink="/reservationList">Ver Reservas Disponibles</button>-->
-            </form>
+
+                <button type="submit" value="Registrarse" [disabled]="!formGroup.valid">Registrarse</button>
+                <button type="submit" routerLink="" value="Iniciar Sesion">Iniciar Sesion</button>
+            </form> 
         </div>
     </div>
 </div>

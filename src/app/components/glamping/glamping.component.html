@@ -1,0 +1,29 @@
+<p>Nuevo Glamping!</p>
+
+<form [formGroup]="glampingForm" (ngSubmit)="submitForm()">
+    <div>
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" formControlName="name" />
+      <div *ngIf="glampingForm.get('name')?.invalid && glampingForm.get('name')?.touched">
+        Nombre es requerido.
+      </div>
+    </div>
+  
+    <div>
+      <label for="capacity">Capacidad:</label>
+      <input type="number" id="capacity" formControlName="capacity" />
+      <div *ngIf="glampingForm.get('capacity')?.invalid && glampingForm.get('capacity')?.touched">
+        Capacidad es requerida.
+      </div>
+    </div>
+  
+    <div>
+      <label for="description">Descripción:</label>
+      <textarea id="description" formControlName="description"></textarea>
+      <div *ngIf="glampingForm.get('description')?.invalid && glampingForm.get('description')?.touched">
+        Descripción es requerida.
+      </div>
+    </div>
+  
+    <button type="submit">Crear Glamping</button>
+</form>

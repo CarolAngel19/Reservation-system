@@ -1,1 +1,66 @@
 <p>reservation works!</p>
+
+<form [formGroup]="reservationForm" (ngSubmit)="submitForm()">
+    <div>
+      <label for="user_id">ID Usuario:</label>
+      <input type="number" id="user_id" formControlName="user_id" />
+      <div *ngIf="reservationForm.get('user_id')?.invalid && reservationForm.get('user_id')?.touched">
+        ID Usuario es requerido.
+      </div>
+    </div>
+  
+    <div>
+      <label for="id_glamping">ID Finca:</label>
+      <input type="number" id="id_glamping" formControlName="id_glamping" />
+      <div *ngIf="reservationForm.get('id_glamping')?.invalid && reservationForm.get('id_glamping')?.touched">
+        ID Finca es requerido.
+      </div>
+    </div>
+  
+    <div>
+      <label for="number_of_adults">Número de Adultos:</label>
+      <input type="number" id="number_of_adults" formControlName="number_of_adults" />
+      <div *ngIf="reservationForm.get('number_of_adults')?.invalid && reservationForm.get('number_of_adults')?.touched">
+        El número de adultos es requerido y debe ser al menos 1.
+      </div>
+    </div>
+  
+    <div>
+      <label for="number_of_children">Número de Niños:</label>
+      <input type="number"/>
+    </div>
+  
+    <div>
+      <label for="date_entry">Fecha de Entrada:</label>
+      <input type="date" id="date_entry" formControlName="date_entry" />
+      <div *ngIf="reservationForm.get('date_entry')?.invalid && reservationForm.get('date_entry')?.touched">
+        Fecha de Entrada es requerida.
+      </div>
+    </div>
+  
+    <div>
+      <label for="date_exit">Fecha de Salida:</label>
+      <input type="date" id="date_exit" formControlName="date_exit" />
+      <div *ngIf="reservationForm.get('date_exit')?.invalid && reservationForm.get('date_exit')?.touched">
+        Fecha de Salida es requerida.
+      </div>
+    </div>
+  
+    <div>
+      <label for="hour_entry">Hora de Llegada:</label>
+      <input type="text" id="hour_entry" formControlName="hour_entry" />
+      <div *ngIf="reservationForm.get('hour_entry')?.invalid && reservationForm.get('hour_entry')?.touched">
+        Hora de Llegada es requerida.
+      </div>
+    </div>
+
+    <div>
+      <label for="hour_exit">Hora de Llegada:</label>
+      <input type="text" id="hour_exit" formControlName="hour_exit" />
+      <div *ngIf="reservationForm.get('hour_exit')?.invalid && reservationForm.get('hour_exit')?.touched">
+        Hora de Salida es requerida.
+      </div>
+    </div>
+  
+    <button type="submit">Crear Reserva</button>
+  </form>
