@@ -1,19 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, ParamMap, Route } from '@angular/router';
+import { BookingService } from 'services/Bookings/booking.service';
+import { GlobalFunctionsService } from 'services/Bookings/global-functions.service';
 
 @Component({
   selector: 'app-reservation',
   templateUrl: './reservation.component.html',
   styleUrls: ['./reservation.component.scss']
 })
-export class ReservationComponent {
+export class ReservationComponent implements OnInit{
 
   reservationForm: FormGroup;
+  glampingId!:string | null;
+  userId!:number;
     
-    constructor(private fb: FormBuilder) {
+    constructor(private fb: FormBuilder, private route: ActivatedRoute, private globalfunction:GlobalFunctionsService, private service:BookingService) {
         this.reservationForm = this.fb.group({
-            user_id: ['', Validators.required],
-            id_glamping: ['', Validators.required],
             number_of_adults: ['', [Validators.required, Validators.min(1)]],
             number_of_children: [''],
             date_entry: ['', Validators.required],
@@ -21,6 +24,19 @@ export class ReservationComponent {
             hour_entry: ['', Validators.required],
             hour_exit: ['', Validators.required]
         });
+    }
+
+    ngOnInit(): void {
+      this.route.paramMap.subscribe((params: ParamMap) => {
+        if(params.get('id') != null){
+          this.glampingId = params.get('id');
+        }
+      })
+
+      this.userId = this.globalfunction.getUserId;
+
+      console.log("Glamping id: ", this.glampingId)
+      console.log("User id: ", this.userId)
     }
 
     submitForm() {
@@ -35,4 +51,30 @@ export class ReservationComponent {
           }
     }
 
+    saveBooking(){
+      if(this.reservationForm.valid){
+        const data = {
+          "user_id": this.userId,
+          "id_glamping": this.glampingId,
+          "number_of_adults": this.reservationForm.value.number_of_adults,
+          "number_of_children": this.reservationForm.value.number_of_children,
+          "date_entry": this.reservationForm.value.date_entry,
+          "date_exit": this.reservationForm.value.date_exit,
+          "hour_entry": this.reservationForm.value.hour_entry,
+          "hour_exit": this.reservationForm.value.hour_exit
+        };
+
+        console.log("Datos a enviar al servicio:", data); 
+          this.service.createBooking(data).subscribe(
+              response => {
+                alert("Booking creado");
+              },
+              error => {
+                console.error('Error al crear booking', error);
+              }
+          );
+      }else{
+        alert("Datos invalidos");
+      }
+  }
 }

@@ -1,21 +1,6 @@
 <p>reservation works!</p>
 
 <form [formGroup]="reservationForm" (ngSubmit)="submitForm()">
-    <div>
-      <label for="user_id">ID Usuario:</label>
-      <input type="number" id="user_id" formControlName="user_id" />
-      <div *ngIf="reservationForm.get('user_id')?.invalid && reservationForm.get('user_id')?.touched">
-        ID Usuario es requerido.
-      </div>
-    </div>
-  
-    <div>
-      <label for="id_glamping">ID Finca:</label>
-      <input type="number" id="id_glamping" formControlName="id_glamping" />
-      <div *ngIf="reservationForm.get('id_glamping')?.invalid && reservationForm.get('id_glamping')?.touched">
-        ID Finca es requerido.
-      </div>
-    </div>
   
     <div>
       <label for="number_of_adults">Número de Adultos:</label>
@@ -27,7 +12,7 @@
   
     <div>
       <label for="number_of_children">Número de Niños:</label>
-      <input type="number"/>
+      <input type="number" id="number_of_children" formControlName="number_of_children"/>
     </div>
   
     <div>
@@ -62,5 +47,5 @@
       </div>
     </div>
   
-    <button type="submit">Crear Reserva</button>
+    <button (click)="saveBooking()" type="submit">Crear Reserva</button>
   </form>

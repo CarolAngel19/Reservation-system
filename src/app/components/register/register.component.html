@@ -3,9 +3,9 @@
         <h2>Register</h2>
         <div class="form-box">
             <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
-                <input name="name" formControlName="name" placeholder="Name">
+                <input name="name" formControlName="name" placeholder="Username">
                 <div *ngIf="formGroup.get('name')?.hasError('required') && formGroup.get('name')?.touched">
-                    El nombre es requerido
+                    El Username es requerido
                 </div><br>
             
                 <input name="email" formControlName="email" placeholder="Email">
@@ -21,7 +21,7 @@
                     La contraseña es requerida.
                 </div> <br>
 
-                <button type="submit" value="Registrarse" [disabled]="!formGroup.valid">Registrarse</button>
+                <button (click)="saveUser()" type="submit" value="Registrarse" [disabled]="!formGroup.valid">Registrarse</button>
                 <button type="submit" routerLink="" value="Iniciar Sesion">Iniciar Sesion</button>
             </form> 
         </div>

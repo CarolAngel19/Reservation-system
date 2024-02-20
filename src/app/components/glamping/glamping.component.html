@@ -24,6 +24,14 @@
         Descripción es requerida.
       </div>
     </div>
+
+    <div>
+      <label for="image">Imagen</label>
+      <input type="text" id="image" formControlName="image" />
+      <div *ngIf="glampingForm.get('image')?.invalid && glampingForm.get('image')?.touched">
+        Imagen es requerida.
+      </div>
+    </div>
   
-    <button type="submit">Crear Glamping</button>
+    <button (click)="saveGlamping()" type="submit">Crear Glamping</button>
 </form>

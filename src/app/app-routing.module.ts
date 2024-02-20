@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'reservationList', component: ReservationListComponent},
   { path: '', component: LogInComponent},
   { path: 'register', component: RegisterComponent},
-  { path: 'reservation', component: ReservationComponent},
+  { path: 'reservation/:id', component: ReservationComponent},
   { path: 'about-us', component: AboutUsComponent},
   { path: 'gampling', component: GlampingComponent}
 ];

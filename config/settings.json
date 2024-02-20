@@ -1,6 +1,5 @@
 {
-    "urlBase": "localhost",
-    "port": 8085,
+    "urlBase": "http://localhost:8085",
     "user": "/booking/user/",
     "booking": "/booking/",
     "glamping": "/booking/glamping/"

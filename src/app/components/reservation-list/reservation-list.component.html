@@ -1,68 +1,19 @@
 <app-navbar></app-navbar>
 <div class="container">
-  <h1 class="title">Lista de Reservationes</h1>
-  <button id="botonAtras" (click)="goBack()">Atrás</button>
-  <button routerLink="/gampling">Añadir Glamping</button>
-  <ul class="cards">
-    <li class="cards_item">
-      <div class="card">
-        <div class="card_image"><img src="https://picsum.photos/500/300/?image=10"></div>
-        <div class="card_content">
-          <h2 class="card_title">Card Grid Layout</h2>
-          <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
-          <button class="btn card_btn" routerLink="/reservation">Reservar</button>
+    <h1 class="title">Lista de Reservationes</h1>
+    <button routerLink="/gampling">Añadir Glamping</button>
+    
+    <div class="row">
+        <div class="col-md-4" *ngFor="let element of glampings">
+            <div class="card card_content" style="width: 18rem;" >
+                <img src={{element.image}} class="card-img-top" alt="img">
+                <div class="card-body">
+                    <h4 class="card-title">{{element.name}}</h4>
+                    <p>Personas Maximas: {{element.capacity}}</p>
+                    <p class="card-text">{{element.description}}</p>
+                    <button (click)="booking(element.id)" class="btn btn-primary">Reservar</button>
+                </div>
+            </div>
         </div>
-      </div>
-    </li>
-    <li class="cards_item">
-      <div class="card">
-        <div class="card_image"><img src="https://picsum.photos/500/300/?image=5"></div>
-        <div class="card_content">
-          <h2 class="card_title">Card Grid Layout</h2>
-          <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
-          <button class="btn card_btn" routerLink="/reservation">Reservar</button>
-        </div>
-      </div>
-    </li>
-    <li class="cards_item">
-      <div class="card">
-        <div class="card_image"><img src="https://picsum.photos/500/300/?image=11"></div>
-        <div class="card_content">
-          <h2 class="card_title">Card Grid Layout</h2>
-          <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
-          <button class="btn card_btn" routerLink="/reservation">Reservar</button>
-        </div>
-      </div>
-    </li>
-    <li class="cards_item">
-      <div class="card">
-        <div class="card_image"><img src="https://picsum.photos/500/300/?image=14"></div>
-        <div class="card_content">
-          <h2 class="card_title">Card Grid Layout</h2>
-          <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
-          <button class="btn card_btn" routerLink="/reservation">Reservar</button>
-        </div>
-      </div>
-    </li>
-    <li class="cards_item">
-      <div class="card">
-        <div class="card_image"><img src="https://picsum.photos/500/300/?image=17"></div>
-        <div class="card_content">
-          <h2 class="card_title">Card Grid Layout</h2>
-          <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
-          <button class="btn card_btn" routerLink="/reservation">Reservar</button>
-        </div>
-      </div>
-    </li>
-    <li class="cards_item">
-      <div class="card">
-        <div class="card_image"><img src="https://picsum.photos/500/300/?image=2"></div>
-        <div class="card_content">
-          <h2 class="card_title">Card Grid Layout</h2>
-          <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
-          <button class="btn card_btn" routerLink="/reservation">Reservar</button>
-        </div>
-      </div>
-    </li>
-  </ul>
+    </div>
 </div>

@@ -1,2 +1,19 @@
 <app-navbar></app-navbar>
-<p>about-us works!</p>
+<div class="container">
+  <div class="contact-box">
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <div>
+        <input type="text" id="name" formControlName="name" placeholder="Name">
+      </div>
+      <div>
+        <input type="email" id="email" formControlName="email" placeholder="Email">
+      </div>
+      <div>
+        <textarea id="message" formControlName="message" placeholder="Message"></textarea>
+      </div>
+      <button type="submit">Contactar</button>
+    </form>
+  </div>
+</div>
+
+
