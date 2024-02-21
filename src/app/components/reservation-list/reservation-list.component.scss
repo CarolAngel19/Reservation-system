@@ -1,11 +1,26 @@
-.container{
+.container-list{
     max-width: 1200px;
     margin: 0 auto;
+
+    .btn-glamping-create{
+        padding: 12px;
+        margin-bottom: 15px;
+        margin-left: 40px;
+        margin-top: 10px;
+        background: linear-gradient(to bottom left, cadetblue 40%, #ff9e9e 100%);
+        border: none;
+        border-radius: 5px;
+        color: white;
+
+        &:hover{
+            background: rgba(64, 110, 111, 0.651);
+        }
+    }
     
     .title{
         font-family: "Josefin Sans", sans-serif;
         font-size: 35px;
-        margin-top: 30px;
+        margin-top: 45px;
         padding-bottom: 0.5rem;
         color: white;
         font-weight: 700;

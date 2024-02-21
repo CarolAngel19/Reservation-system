@@ -1,3 +1,23 @@
-.container{
+.container-home{
     color: white;
+    text-align: center;
+
+    h1{
+        
+    }
+
+    p{
+        margin-bottom: 0;
+    }
+
+    .box-glamping{
+        margin-top: 50px;
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+
+    .box-info{
+        margin-top: 30px;
+        padding: 10px;
+    }
 }

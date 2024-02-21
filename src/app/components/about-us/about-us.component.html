@@ -1,18 +1,18 @@
 <app-navbar></app-navbar>
-<div class="container">
+<div class="container-contact">
   <div class="contact-box">
-    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-      <div>
-        <input type="text" id="name" formControlName="name" placeholder="Name">
-      </div>
-      <div>
-        <input type="email" id="email" formControlName="email" placeholder="Email">
-      </div>
-      <div>
-        <textarea id="message" formControlName="message" placeholder="Message"></textarea>
-      </div>
-      <button type="submit">Contactar</button>
-    </form>
+    <h4>Contacto</h4>
+    <div class="form-contact">
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <div class="form-input">
+          <input type="text" id="name" formControlName="name" placeholder="Name"><br>
+          <input type="email" id="email" formControlName="email" placeholder="Email"><br>
+          <textarea id="message" formControlName="message" placeholder="Message"></textarea><br>
+          <button type="submit">Contactar</button>
+        </div>
+        
+      </form>
+    </div>
   </div>
 </div>
 

@@ -63,11 +63,10 @@ export class ReservationComponent implements OnInit{
           "hour_entry": this.reservationForm.value.hour_entry,
           "hour_exit": this.reservationForm.value.hour_exit
         };
-
-        console.log("Datos a enviar al servicio:", data); 
           this.service.createBooking(data).subscribe(
               response => {
                 alert("Booking creado");
+                console.log(data); 
               },
               error => {
                 console.error('Error al crear booking', error);

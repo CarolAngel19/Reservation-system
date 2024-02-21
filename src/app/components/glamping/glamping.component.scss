@@ -1,0 +1,45 @@
+.glamping-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+
+    .form-box{
+        font-family: montserrat;
+        color: #2C3E50;
+        font-size: 13px;  
+        border-radius: 3px;
+        input{
+            padding: 15px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        textarea{
+            width: 100%;
+            padding: 6px;
+        }
+
+        button{
+            padding: 12px;
+            margin-left: 40px;
+            margin-top: 10px;
+            background: cadetblue;
+            border: none;
+            border-radius: 5px;
+            color: white;
+
+            &:hover{
+                background: rgb(64, 110, 111);
+            }
+        }
+    }
+}

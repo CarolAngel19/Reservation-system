@@ -1,51 +1,51 @@
-<p>reservation works!</p>
+<div class="container">
+  <div class="reservas-box">
+    <h3>Reservacion</h3>
+    <p>Ingresa los datos solicitados para realizar una reserva</p>
+    <div class="from-reservas">
+      <form [formGroup]="reservationForm" (ngSubmit)="submitForm()">
 
-<form [formGroup]="reservationForm" (ngSubmit)="submitForm()">
-  
-    <div>
-      <label for="number_of_adults">Número de Adultos:</label>
-      <input type="number" id="number_of_adults" formControlName="number_of_adults" />
-      <div *ngIf="reservationForm.get('number_of_adults')?.invalid && reservationForm.get('number_of_adults')?.touched">
-        El número de adultos es requerido y debe ser al menos 1.
-      </div>
-    </div>
-  
-    <div>
-      <label for="number_of_children">Número de Niños:</label>
-      <input type="number" id="number_of_children" formControlName="number_of_children"/>
-    </div>
-  
-    <div>
-      <label for="date_entry">Fecha de Entrada:</label>
-      <input type="date" id="date_entry" formControlName="date_entry" />
-      <div *ngIf="reservationForm.get('date_entry')?.invalid && reservationForm.get('date_entry')?.touched">
-        Fecha de Entrada es requerida.
-      </div>
-    </div>
-  
-    <div>
-      <label for="date_exit">Fecha de Salida:</label>
-      <input type="date" id="date_exit" formControlName="date_exit" />
-      <div *ngIf="reservationForm.get('date_exit')?.invalid && reservationForm.get('date_exit')?.touched">
-        Fecha de Salida es requerida.
-      </div>
-    </div>
-  
-    <div>
-      <label for="hour_entry">Hora de Llegada:</label>
-      <input type="text" id="hour_entry" formControlName="hour_entry" />
-      <div *ngIf="reservationForm.get('hour_entry')?.invalid && reservationForm.get('hour_entry')?.touched">
-        Hora de Llegada es requerida.
-      </div>
+        <div>
+          <input type="number" id="number_of_adults" formControlName="number_of_adults" placeholder="Número de Adultos"/>
+          <div *ngIf="reservationForm.get('number_of_adults')?.invalid && reservationForm.get('number_of_adults')?.touched">
+            El número de adultos es requerido y debe ser al menos 1.
+          </div>
+        </div>
+        
+        <div>
+          <input type="number" id="number_of_children" formControlName="number_of_children" placeholder="Número de Niños"/>
+        </div>
+        
+        <div>
+          <input type="date" id="date_entry" formControlName="date_entry" placeholder="Fecha de Entrada" />
+          <div *ngIf="reservationForm.get('date_entry')?.invalid && reservationForm.get('date_entry')?.touched">
+            Fecha de Entrada es requerida.
+          </div>
+        </div>
+        <div>
+          <input type="date" id="date_exit" formControlName="date_exit" placeholder="Fecha de Salida"/>
+          <div *ngIf="reservationForm.get('date_exit')?.invalid && reservationForm.get('date_exit')?.touched">
+            Fecha de Salida es requerida.
+          </div>
+        </div>
+        
+        <div>
+          <input type="text" id="hour_entry" formControlName="hour_entry" placeholder="Hora de Llegada" />
+          <div *ngIf="reservationForm.get('hour_entry')?.invalid && reservationForm.get('hour_entry')?.touched">
+            Hora de Llegada es requerida.
+          </div>
+        </div>
+        
+        <div>
+          <input type="text" id="hour_exit" formControlName="hour_exit" placeholder="Hora de Llegada"/>
+          <div *ngIf="reservationForm.get('hour_exit')?.invalid && reservationForm.get('hour_exit')?.touched">
+            Hora de Salida es requerida.
+          </div>
+        </div>
+        <button (click)="saveBooking()" type="submit">Crear Reserva</button>
+        <button type="submit" routerLink="/reservationList">Atras</button>
+      </form>
     </div>
 
-    <div>
-      <label for="hour_exit">Hora de Llegada:</label>
-      <input type="text" id="hour_exit" formControlName="hour_exit" />
-      <div *ngIf="reservationForm.get('hour_exit')?.invalid && reservationForm.get('hour_exit')?.touched">
-        Hora de Salida es requerida.
-      </div>
-    </div>
-  
-    <button (click)="saveBooking()" type="submit">Crear Reserva</button>
-  </form>
+  </div>
+</div>

@@ -1,37 +1,39 @@
-<p>Nuevo Glamping!</p>
+<div class="container">
+  <div class="glamping-box">
+    <p>Nuevo Glamping!</p>
+    <div class="form-box">
+      <form [formGroup]="glampingForm" (ngSubmit)="submitForm()">
+        <div>
+          <input type="text" id="name" formControlName="name" placeholder="Nombre"/>
+          <div *ngIf="glampingForm.get('name')?.invalid && glampingForm.get('name')?.touched">
+            Nombre es requerido.
+          </div>
+        </div>
+      
+        <div>
+          <input type="number" id="capacity" formControlName="capacity" placeholder="Capacidad"/>
+          <div *ngIf="glampingForm.get('capacity')?.invalid && glampingForm.get('capacity')?.touched">
+            Capacidad es requerida.
+          </div>
+        </div>
+      
+        <div>
+          <textarea id="description" formControlName="description" placeholder="Descripción"></textarea>
+          <div *ngIf="glampingForm.get('description')?.invalid && glampingForm.get('description')?.touched">
+            Descripción es requerida.
+          </div>
+        </div>
 
-<form [formGroup]="glampingForm" (ngSubmit)="submitForm()">
-    <div>
-      <label for="name">Nombre:</label>
-      <input type="text" id="name" formControlName="name" />
-      <div *ngIf="glampingForm.get('name')?.invalid && glampingForm.get('name')?.touched">
-        Nombre es requerido.
-      </div>
-    </div>
-  
-    <div>
-      <label for="capacity">Capacidad:</label>
-      <input type="number" id="capacity" formControlName="capacity" />
-      <div *ngIf="glampingForm.get('capacity')?.invalid && glampingForm.get('capacity')?.touched">
-        Capacidad es requerida.
-      </div>
-    </div>
-  
-    <div>
-      <label for="description">Descripción:</label>
-      <textarea id="description" formControlName="description"></textarea>
-      <div *ngIf="glampingForm.get('description')?.invalid && glampingForm.get('description')?.touched">
-        Descripción es requerida.
-      </div>
-    </div>
+        <div>
+          <input type="text" id="image" formControlName="image" placeholder="URL Imagen"/>
+          <div *ngIf="glampingForm.get('image')?.invalid && glampingForm.get('image')?.touched">
+            Imagen es requerida.
+          </div>
+        </div>
+        <button (click)="saveGlamping()" type="submit">Crear Glamping</button>
+      </form>
 
-    <div>
-      <label for="image">Imagen</label>
-      <input type="text" id="image" formControlName="image" />
-      <div *ngIf="glampingForm.get('image')?.invalid && glampingForm.get('image')?.touched">
-        Imagen es requerida.
-      </div>
     </div>
-  
-    <button (click)="saveGlamping()" type="submit">Crear Glamping</button>
-</form>
+  </div>
+</div>
+
